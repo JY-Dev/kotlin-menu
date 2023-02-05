@@ -1,5 +1,7 @@
 package menu
 
+import menu.data.MenuRecommendService
+import menu.model.MenuInfo
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

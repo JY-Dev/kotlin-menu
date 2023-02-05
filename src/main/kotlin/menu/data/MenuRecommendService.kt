@@ -1,6 +1,9 @@
-package menu
+package menu.data
 
 import camp.nextstep.edu.missionutils.Randoms
+import menu.model.MenuInfo
+import menu.model.MenuResult
+import menu.model.RecommendMenuResult
 
 class MenuRecommendService(private val menuInfo: MenuInfo) {
     private val selectCategoryCntMap = hashMapOf<String,Int>()
@@ -11,7 +14,7 @@ class MenuRecommendService(private val menuInfo: MenuInfo) {
         inedibleMenuMap[coachName] = menuList.toHashSet()
     }
 
-    fun getRecommendMenuResult(coachList : List<String>) : RecommendMenuResult{
+    fun getRecommendMenuResult(coachList : List<String>) : RecommendMenuResult {
         val categoryList = mutableListOf<String>()
         while (selectCategoryCntMap.entries.sumOf { it.value } < RECOMMEND_DAY){
             val recommendCategory = recommendCategory()

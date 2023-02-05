@@ -1,7 +1,11 @@
 package menu
 
+import menu.data.MenuRecommendService
+import menu.view.MenuRecommendView
+
 class MenuRecommendApplication(private val menuRecommendView: MenuRecommendView,
-                               private val menuRecommendService: MenuRecommendService) {
+                               private val menuRecommendService: MenuRecommendService
+) {
     fun startRecommendMenu(){
         menuRecommendView.startRecommendMenu()
         val coachList = retryIllegalArgument {
