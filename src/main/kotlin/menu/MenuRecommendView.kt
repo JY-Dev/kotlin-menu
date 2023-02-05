@@ -13,7 +13,7 @@ class MenuRecommendView {
         return Console.readLine()
     }
 
-    fun inputCoachInedibleFoods(coachName : String) : String{
+    fun inputCoachInedibleMenu(coachName : String) : String{
         println("$coachName(이)가 못 먹는 메뉴를 입력해 주세요.")
         return Console.readLine()
     }
