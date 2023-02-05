@@ -7,11 +7,11 @@ import menu.model.RecommendMenuResult
 
 class MenuRecommendService(private val menuInfo: MenuInfo) {
     private val selectCategoryCntMap = hashMapOf<String,Int>()
-    private val inedibleMenuMap = hashMapOf<String,HashSet<String>>()
+    private val inedibleMenuMap = hashMapOf<String,Set<String>>()
     private val recommendMenuMap = linkedMapOf<String,LinkedHashSet<String>>()
 
     fun setInedibleMenu(coachName : String, menuList : List<String>){
-        inedibleMenuMap[coachName] = menuList.toHashSet()
+        inedibleMenuMap[coachName] = menuList.toSet()
     }
 
     fun getRecommendMenuResult(coachList : List<String>) : RecommendMenuResult {
@@ -78,7 +78,7 @@ class MenuRecommendService(private val menuInfo: MenuInfo) {
                 return category
             visit[category] = Unit
             if(visit.size == menuInfo.categories.size)
-                throw IllegalArgumentException("추천할 카테고리가 없습니")
+                throw IllegalArgumentException("추천할 카테고리가 없습니다.")
         }
     }
 

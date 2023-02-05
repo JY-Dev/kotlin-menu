@@ -29,7 +29,7 @@ class MenuRecommendApplication(private val menuRecommendView: MenuRecommendView,
         if((coachList.size !in 2..5))
             throw IllegalArgumentException("코치의 수는 2에서 5사이 입니다.")
         coachList.find { it.length !in 2..4 }?.run {
-            throw IllegalArgumentException("코치의 이름은 최소 2글자, 최대 4글자입가다.")
+            throw IllegalArgumentException("코치의 이름은 최소 2글자, 최대 4글자입니다.")
         }
     }
 
