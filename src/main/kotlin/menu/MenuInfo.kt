@@ -10,3 +10,7 @@ class MenuInfo {
         this["양식"] = listOf("라자냐","그라탱","뇨끼","끼슈","프렌치 토스트","바게트","스파게티","피자","파니니")
     }
 }
+
+enum class MenuInfoEnum(val menuList : List<String>){
+
+}
