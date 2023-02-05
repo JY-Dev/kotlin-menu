@@ -1,6 +1,7 @@
 package menu
 
 import menu.data.MenuRecommendService
+import menu.model.Coach
 import menu.view.MenuRecommendView
 
 class MenuRecommendApplication(private val menuRecommendView: MenuRecommendView,
@@ -12,17 +13,15 @@ class MenuRecommendApplication(private val menuRecommendView: MenuRecommendView,
             menuRecommendView.inputCoaches().split(",").also {
                 validationCoach(it)
             }
-        }
-        coachList.forEach { name ->
+        }.map { name ->
             retryIllegalArgument {
-                val inedibleMenu = menuRecommendView.inputCoachInedibleMenu(name).split(",")
+                val inedibleMenu = menuRecommendView.inputCoachInedibleMenu(name).split(",").toSet()
                 validationInedibleMenu(inedibleMenu)
-                menuRecommendService.setInedibleMenu(name,inedibleMenu)
+                Coach(name,inedibleMenu)
             }
         }
         val result = menuRecommendService.getRecommendMenuResult(coachList)
         menuRecommendView.printRecommendMenuResult(result)
-        menuRecommendService.clear()
     }
 
     private fun validationCoach(coachList : List<String>){
@@ -33,7 +32,7 @@ class MenuRecommendApplication(private val menuRecommendView: MenuRecommendView,
         }
     }
 
-    private fun validationInedibleMenu(inedibleMenuList : List<String>){
+    private fun validationInedibleMenu(inedibleMenuList : Set<String>){
         if(inedibleMenuList.size !in 0..2)
             throw IllegalArgumentException("먹지 못하는 메뉴의 수는 0에서 2사이 입니다.")
     }
