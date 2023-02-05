@@ -28,4 +28,8 @@ class MenuRecommendView {
         }
         println("추천을 완료했습니다.")
     }
+
+    fun printError(message : String){
+        println("[ERROR] $message")
+    }
 }
